@@ -1,13 +1,56 @@
-<!DOCTYPE html>
 <html lang='ja'>
 <head>
   <meta charset='utf-8'>
+  <style type='text/css'>
+    label1{margin-right:8px;}
   </style>
 </head>
 <body>
-
+  <h1>FizzBuzz問題</h1>
+  <p>FizzNum: <input type="text" name="fizzes" id="fizz" placeholder="整数値を入力してください"></p>
+  <p>BuzzNum:<input type="text" name="buzzes" id="buzz" placeholder="整数値を入力してください"></p>
+  <button value="実行" id="btn">実行</button>
+  <div id="output">
+    <p>【出力】</p>
+  </div>
 <script>
+`use strict`
 
+const btn = document.getElementById('btn');
+
+btn.addEventListener('click', () => {
+  const elemFizzNumber = document.getElementById('fizz');
+  const fizzNumber = elemFizzNumber.value;
+  const elemBuzzNumber = document.getElementById('buzz');
+  const buzzNumber = elemBuzzNumber.value;
+  const outputArea = document.getElementById('output');
+  outputArea.innerHTML = '';
+  const ptag = document.createElement('p');
+  ptag.textContent = '【出力】';
+  outputArea.appendChild(ptag);
+
+for (let i = 1; i < 100; i++) {
+    　value ='';
+if (i % fizzNumber === 0 && i % buzzNumber === 0) {
+      value = "FizzBuzz" + i;
+    } else if (i % fizzNumber === 0) {
+      value = "Fizz" + i;
+    } else if (i % buzzNumber === 0) {
+      value = "Buzz" + i;
+    } else {
+      value = '';
+    }
+    const fizzbuzz = document.createElement('p');
+    fizzbuzz.textContent = value;
+    const div = document.querySelector('div');
+    outputArea.appendChild(fizzbuzz);
+　}
+    value = '整数値を入力してください';
+    const letter = document.createElement('p');
+    letter.textContent = value;
+    const div = document.querySelector('div');
+    outputArea.appendChild(letter);
+});
 </script>
 </body>
 </html>
